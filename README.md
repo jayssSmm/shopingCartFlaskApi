@@ -196,17 +196,6 @@ POST requests redirect to GET routes to prevent duplicate form submissions.
 
 ---
 
-## 📸 Screenshots
-
-> Add screenshots here
-
-```
-/screenshots/books-page.png
-/screenshots/cart-page.png
-```
-
----
-
 ## 🤝 Contribution
 
 Contributions are welcome.
