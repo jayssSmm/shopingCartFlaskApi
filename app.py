@@ -10,8 +10,10 @@ Session(app)
 
 @app.route('/')
 def index():
-    conn=sqlite3.connect('books.db')
-    cursor=conn.cursor()
+    conn = sqlite3.connect('books.db')
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
     cursor.execute('SELECT * FROM books;')
     row=cursor.fetchall()
     conn.close()
@@ -33,8 +35,9 @@ def cart():
     if session['cart']==[]:
         rows=[]
     else:
-        conn=sqlite3.connect('books.db')
-        cursor=conn.cursor()
+        conn = sqlite3.connect('books.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
         placeholder= ','.join(['?']*len(session['cart']))
         cursor.execute(f'SELECT * FROM books WHERE id IN ({placeholder})',session['cart'])
         rows=cursor.fetchall()
